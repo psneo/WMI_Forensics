@@ -1,3 +1,5 @@
+# WMI_Forensics port to python 3
+ported PyWMIPersistenceFinder.py to python 3
 # WMI_Forensics
 This repository contains scripts used to find evidence in WMI repositories, specifically OBJECTS.DATA files located at:
 

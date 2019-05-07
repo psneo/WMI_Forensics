@@ -169,10 +169,13 @@ def main():
                     consumer_match = re.search(consumer_mo, potential_page)
                     if consumer_match:
                         noisy_string = consumer_match.groups()[2]
+			temp = filter(lambda event_consumer_name: event_consumer_name in
+                                   PRINTABLE_CHARS, noisy_string)
+			arg_ = ""
+			for item in temp:
+				arg_ += item
                         consumer_details = "\n\t\tConsumer Type: {}\n\t\tArguments:     {}".format(
-                            consumer_match.groups()[0],
-                            filter(lambda event_consumer_name: event_consumer_name in
-                                   PRINTABLE_CHARS, noisy_string))
+                            consumer_match.groups()[0], arg_)
                         if consumer_match.groups()[5]:
                             consumer_details += "\n\t\tConsumer Name: {}".format(consumer_match.groups()[5])
                         if consumer_match.groups()[7]:
